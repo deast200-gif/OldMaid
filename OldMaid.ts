@@ -1,4 +1,15 @@
 
+   /* Pseudo Code
+	- Create deck using class
+	- Create two players
+	- Distribute cards randomly
+	- Create an array for player hand
+	- Find matching pair(loop?) and push to empty pile
+	- Players take turns drawing from each other
+	- Find matching pair(loop?) and push to empty pile
+	- Last person with Old Maid card loses (console.log) */ 
+	
+
 //unshuffled deck
 
 let deck: string[] = ['Actor', 'Actor', 'Actress', 'Actress', 'Builder','Builder','Pilot','Pilot','Spy','Spy','Farmer','Farmer','Old Maid','Zookeeper','Zookeper','Veterinarian','Veterinarian','Officer','Officer','Firefighter','Firefighter','Cook','Cook','Teacher','Teacher','Doctor','Doctor','Scientist','Scientist','Nurse','Nurse','Ballerina','Ballerina','Athlete','Athlete', 'Author', 'Author','Doctor','Doctor']
@@ -10,33 +21,30 @@ class Player {
     name: string;
     hand: string[];
 
- 
     constructor(name: string,){
     this.name = name;
     this.hand = [];
   }
 
-   addToHand() {  //function to draw a random card and push it player hand
+  //function to draw a random card and push it to player hand
+   addToHand() {  
 
 	   let card = shuffledCardDeck.shift();
 	   if (card) {
-        this.hand.push(card);
+        this.hand.push(card); 
         
     }
      
    }
-
-
 
 }
 
 // new player creation 
 
   const player1 = new Player('Tony')
-
   const player2 = new Player('Manny')
-
   const player3 = new Player('Lenny')
+  
 
 
 
@@ -62,13 +70,12 @@ const shuffledCardDeck = shuffle(deck);
 
 function DealCards() {
 
-  for (let i = shuffledCardDeck.length; i >= shuffledCardDeck.length; i--) {
+  while (shuffledCardDeck.length > 0) {
     player1.addToHand();
     player2.addToHand();
     player3.addToHand();
   }
 }
-
 
 
 DealCards()
